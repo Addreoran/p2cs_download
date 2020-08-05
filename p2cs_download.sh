@@ -14,7 +14,7 @@ read save_file
 
 echo "# Script is running. Watch out your RAM!"
 
-#phantomjs ./p2cs_download.js $searching_url$session_id > "./p2cs.html"
+phantomjs ./p2cs_download.js $searching_url$session_id > "./p2cs.html"
 
 echo "# Completed downloading genes id. For next step you will need coffee."
 
