@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "# Go into http://www.p2cs.org/, click 'browse' and Paste your PHPSESSID from url. 53c439c04917bc7960dca13d2870e9fa"
+echo "# Go into http://www.p2cs.org/, click 'browse' and Paste your PHPSESSID from url."
 
 read session_id
 
