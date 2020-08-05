@@ -24,11 +24,12 @@ char=" "
 all_genes=$(awk -F"${char}" '{print NF-1}' <<< "${res}"| wc -l)
 counter_curl=0
 collector=''
+limiter=6000
 for tmp in $res;
 do
     collector=$collector'&gene%5B%5D='$tmp
     counter=$((counter+1))
-    if (( counter > 1000 ))
+    if (( counter > $limiter ))
     then
         data_post='PHPSESSID='$session_id'&section=p2cscart&action=add'$collector
         #echo $data_post
@@ -36,7 +37,7 @@ do
         collector=''
         counter=0
         counter_curl=$((counter_curl+1))
-        echo 'completed requests: '$counter_curl "from: "$((all_genes/1000 +1))' requests.'
+        echo 'completed requests: '$counter_curl "from: "$((all_genes/limiter +1))' requests.'
 
     fi
 done
